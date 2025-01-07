@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Background with PayPal</title>
+    <script defer src="app.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 1.2rem;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #0070ba;
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .paypal-button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            color: white;
+            background-color: #0070ba;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .paypal-button:hover {
+            background-color: #005a9c;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div><a href="#home">Home</a></div>
+        <div>
+            <a href="#about">Instagram</a>    
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+    
+    <!-- Background video -->
+    <video class="video-background" autoplay loop muted>
+        <source src="/video/animation4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- PayPal button container -->
+    <div class="content">
+        <button id="checkout-button" class="paypal-button">Donate with PayPal</button>
+    </div>
+
+    <!-- PayPal SDK script -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+
+    <script src="app.js"></script>
+</body>
+</html>
