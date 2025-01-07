@@ -3,69 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neural Links</title>
+    <title>Video Background with PayPal</title>
     <style>
-        body {
+        body, html {
             margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #1a1a1a, #333);
-            color: white;
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .content {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            align-items: center;
+            height: 100%;
         }
-        .container {
-            text-align: center;
-            padding: 20px;
-        }
-        .title {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .subtitle {
+        .paypal-button {
+            padding: 15px 30px;
             font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .link-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .link {
-            padding: 15px 20px;
+            color: white;
+            background-color: #0070ba;
+            border: none;
+            border-radius: 5px;
             text-decoration: none;
-            color: #333;
-            background: #fff;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            transition: transform 0.2s ease, background 0.2s ease;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        .link:hover {
-            transform: scale(1.05);
-            background: #f0f0f0;
-        }
-        footer {
-            margin-top: 3rem;
-            font-size: 0.9rem;
-            color: #ccc;
+        .paypal-button:hover {
+            background-color: #005a9c;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="title">Neural Links</div>
-        <div class="subtitle">Curated Knowledge at Your Fingertips</div>
-        <div class="link-list">
-            <a href="#" class="link">Link 1: Deep Learning Basics</a>
-            <a href="#" class="link">Link 2: Neural Network Architectures</a>
-            <a href="#" class="link">Link 3: AI and Society</a>
-            <a href="#" class="link">Link 4: Open Source Resources</a>
-        </div>
+    <video class="video-background" autoplay loop muted>
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="content">
+        <a href="https://www.paypal.com" class="paypal-button">Donate with PayPal</a>
     </div>
-    <footer>
-        &copy; 2025 Neural Links. All Rights Reserved.
-    </footer>
 </body>
 </html>
