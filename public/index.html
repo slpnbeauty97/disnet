@@ -34,7 +34,7 @@
         .navbar a:hover {
             color: #0070ba;
         }
-        .video-background {
+     .background-image {
             position: fixed;
             top: 0;
             left: 0;
@@ -42,6 +42,9 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
+            background-image: url('https://app.box.com/s/56gtqc8yx7md5drg4ban1pyvi45on8y2'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
         }
         .content {
             display: flex;
@@ -75,11 +78,8 @@
         </div>
     </div>
     
-    <!-- Background video -->
-   <img src class="video-background" autoplay loop muted>
-        <img source src="https://app.box.com/s/56gtqc8yx7md5drg4ban1pyvi45on8y2" type="image/jpeg">
-        Your browser does not support the video tag.
-    </img>
+  <!-- Background Image -->
+    <div class="background-image"></div>
     <!-- PayPal button container -->
     <div class="content">
         <button id="checkout-button" class="paypal-button">Donate with PayPal</button>
