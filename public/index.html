@@ -135,49 +135,71 @@
             background-color: #005a9c;
         }
 
+   /* Card container */
     .flip-card {
-  perspective: 1000px; /* Creates a 3D perspective */
-  width: 300px;
-  height: 400px;
-}
+      perspective: 1000px; /* Enables the 3D effect */
+      width: 300px;
+      height: 400px;
+    }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s; /* Smooth flipping transition */
-  transform-style: preserve-3d; /* Ensures both sides are in 3D */
-}
+    /* Card inner */
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s; /* Smooth animation */
+      transform-style: preserve-3d; /* Allows front and back to stack in 3D */
+    }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg); /* Flips the card */
-}
+    /* Hover flip effect */
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
 
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden; /* Hides the back side while not flipped */
-  border-radius: 10px;
-  overflow: hidden;
-}
+    /* Front and back faces */
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden; /* Hides the back when front is visible */
+      border-radius: 10px; /* Rounds the corners */
+      overflow: hidden; /* Ensures content doesn't overflow */
+    }
 
-.flip-card-front {
-  background-color: #f0f0f0; /* Front background color */
-}
+    /* Front face (image) */
+    .flip-card-front {
+      background-color: #f0f0f0;
+    }
 
-.flip-card-back {
-  background-color: #333; /* Back background color */
-  color: white;
-  transform: rotateY(180deg); /* Initially flipped back side */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+    .flip-card-front img {
+      width: 100%; /* Makes the image fit the card */
+      height: 100%; /* Ensures it covers the height */
+      object-fit: cover; /* Ensures the image scales properly without distortion */
+    }
 
+    /* Back face (text content) */
+    .flip-card-back {
+      background-color: #333;
+      color: white;
+      transform: rotateY(180deg); /* Initially flipped */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .flip-card-back h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .flip-card-back p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      text-align: center;
+    }
 
   </style>
 </head>
