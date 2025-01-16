@@ -53,12 +53,32 @@
       color: #555;
     }
 
-    .content {
+    .content-1 {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 20px;
     }
+     .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .paypal-button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            color: white;
+            background-color: #0070ba;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .paypal-button:hover {
+            background-color: #005a9c;
+        }
 
     .text-section {
       flex: 1;
@@ -111,7 +131,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="content">
+    <div class="content-1">
       <!-- Text Section -->
       <div class="text-section">
         <h1>
