@@ -135,6 +135,50 @@
             background-color: #005a9c;
         }
 
+    .flip-card {
+  perspective: 1000px; /* Creates a 3D perspective */
+  width: 300px;
+  height: 400px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s; /* Smooth flipping transition */
+  transform-style: preserve-3d; /* Ensures both sides are in 3D */
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg); /* Flips the card */
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back side while not flipped */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  background-color: #f0f0f0; /* Front background color */
+}
+
+.flip-card-back {
+  background-color: #333; /* Back background color */
+  color: white;
+  transform: rotateY(180deg); /* Initially flipped back side */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
   </style>
 </head>
 <body>
@@ -158,7 +202,16 @@
 
         
       </div>
+
+      <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
       <img src="myprofile.jpeg" alt="Person posing creatively">
+ </div>
+    <div class="flip-card-back">
+
+
+      
     </section>
 
     <section class="grid-section">
@@ -202,5 +255,16 @@
     <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
 
     <script src="app.js"></script>
+       <script>
+    // JavaScript for timed flip
+    document.addEventListener("DOMContentLoaded", () => {
+      const flipCard = document.querySelector(".flip-card-inner");
+
+      // Automatically flip the card after 3 seconds
+      setTimeout(() => {
+        flipCard.style.transform = "rotateY(180deg)";
+      }, 3000);
+    });
+  </script>
 </body>
 </html>
