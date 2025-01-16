@@ -43,6 +43,26 @@
       justify-content: space-between;
       gap: 2rem;
     }
+    img {
+  max-width: 100%; /* Ensures the image scales down on smaller screens */
+  height: auto; /* Maintains the aspect ratio */
+  display: block; /* Removes the bottom gap caused by inline elements */
+  border-radius: 10px; /* Keeps the existing rounded corners */
+}
+
+/* Add a specific size for your images with flexibility */
+.hero img {
+  width: 100%; /* Adjusts based on the container width */
+  max-width: 600px; /* Ensures the image doesn’t grow too large */
+  height: auto; /* Maintains aspect ratio */
+}
+
+.grid-item img {
+  width: 80px; /* Consistent size for smaller images */
+  height: auto; /* Keeps the aspect ratio intact */
+  margin-bottom: 1rem;
+}
+
     .hero img {
       width: 40%;
       border-radius: 10px;
