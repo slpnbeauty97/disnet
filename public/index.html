@@ -135,12 +135,23 @@
             background-color: #005a9c;
         }
 
-   /* Card container */
-  .flip-card {
-  perspective: 1000px;
-  width: 350px; /* Increased width for better proportions */
-  height: 450px; /* Adjusted height to maintain balance */
-}
+ /* Media query for smaller screens */
+    @media (max-width: 768px) {
+      .flip-card {
+        width: 80%; /* Make the card occupy 80% of the screen width */
+        height: auto; /* Allow the height to adjust based on the width */
+      }
+
+      .flip-card-front img {
+        height: auto; /* Maintain aspect ratio on smaller screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .flip-card {
+        width: 90%; /* Make the card even narrower on small phones */
+        height: auto;
+      }
 
     /* Card inner */
     .flip-card-inner {
