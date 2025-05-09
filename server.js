@@ -24,7 +24,7 @@ app.post('/create-order', async (req, res) => {
             {
                 amount: {
                     currency_code: 'USD',
-                    value: '10.00', // Replace with your price
+                    value: '950.00', // Replace with your price
                 },
             },
         ],
