@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Welcome to Disnet</title>
   <style>
-       body {
+    body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -42,29 +42,12 @@
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
+      flex-wrap: wrap;
     }
-    img {
-  max-width: 100%; /* Ensures the image scales down on smaller screens */
-  height: auto; /* Maintains the aspect ratio */
-  display: block; /* Removes the bottom gap caused by inline elements */
-  border-radius: 10px; /* Keeps the existing rounded corners */
-}
-
-/* Add a specific size for your images with flexibility */
-.hero img {
-  width: 100%; /* Adjusts based on the container width */
-  max-width: 600px; /* Ensures the image doesn’t grow too large */
-  height: auto; /* Maintains aspect ratio */
-}
-
-.grid-item img {
-  width: 80px; /* Consistent size for smaller images */
-  height: auto; /* Keeps the aspect ratio intact */
-  margin-bottom: 1rem;
-}
-
     .hero img {
-      width: 40%;
+      width: 100%;
+      max-width: 600px;
+      height: auto;
       border-radius: 10px;
     }
     .hero-content {
@@ -86,6 +69,7 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
     .grid-section {
       text-align: center;
     }
@@ -107,105 +91,112 @@
       text-align: center;
     }
     .grid-item img {
-      width: 50px;
+      width: 80px;
+      height: auto;
       margin-bottom: 1rem;
     }
     .grid-item h4 {
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
     }
-     .content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-        .paypal-button {
-            padding: 15px 30px;
-            font-size: 1.5rem;
-            color: white;
-            background-color: #0070ba;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .paypal-button:hover {
-            background-color: #005a9c;
-        }
 
-/* Card container */
-    .flip-card {
-      perspective: 1000px; /* Enables the 3D effect */
-      width: 350px; /* Wider card */
-      height: 450px; /* Taller card */
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      margin-top: 2rem;
+    }
+    .paypal-button {
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      color: white;
+      background-color: #0070ba;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .paypal-button:hover {
+      background-color: #005a9c;
     }
 
-    /* Card inner */
+    /* Flip Card */
+    .flip-card-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .flip-card {
+      perspective: 1000px;
+      width: 100%;
+      max-width: 350px;
+      height: 450px;
+      margin: auto;
+    }
     .flip-card-inner {
       position: relative;
       width: 100%;
       height: 100%;
-      transition: transform 0.6s; /* Smooth animation */
-      transform-style: preserve-3d; /* Allows front and back to stack in 3D */
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
     }
-
-    /* Hover flip effect */
     .flip-card:hover .flip-card-inner {
       transform: rotateY(180deg);
     }
-
-    /* Front and back faces */
     .flip-card-front,
     .flip-card-back {
       position: absolute;
       width: 100%;
       height: 100%;
-      backface-visibility: hidden; /* Hides the back when front is visible */
-      border-radius: 10px; /* Rounds the corners */
-      overflow: hidden; /* Ensures content doesn't overflow */
+      backface-visibility: hidden;
+      border-radius: 10px;
+      overflow: hidden;
     }
-
-    /* Front face (image) */
     .flip-card-front {
       background-color: #f0f0f0;
     }
-
     .flip-card-front img {
-      width: 100%; /* Makes the image fit the card */
-      height: 100%; /* Ensures it covers the height */
-      object-fit: cover; /* Ensures the image scales properly without distortion */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-
-    /* Back face (text content) */
     .flip-card-back {
       background-color: #333;
       color: white;
-      transform: rotateY(180deg); /* Initially flipped */
+      transform: rotateY(180deg);
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       padding: 1rem;
     }
-
     .flip-card-back h2 {
       margin: 0;
       font-size: 1.5rem;
     }
-
     .flip-card-back p {
       margin-top: 0.5rem;
       font-size: 1rem;
       text-align: center;
     }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero img {
+        width: 100%;
+      }
+      .flip-card-container {
+        margin-top: 2rem;
+      }
+    }
   </style>
-
-<script async src="https://tally.so/widgets/embed.js"></script>
-
-  
 </head>
+
 <body>
   <header class="header">
     <h1>Disne++++++{{}}</h1>
@@ -215,39 +206,44 @@
       <a href="#">Sign Up</a>
     </nav>
   </header>
+
   <main class="main">
+    <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
         <span class="tag">My Global Community</span>
         <h2>The Home for a Bit More Creativity in a Design Based Community</h2>
         <p>Ask questions, share ideas, and build connections with each other—all right next to your designs. DesignTo Discussions enable healthy and productive design collaboration.</p>
-       <button onclick="window.location.href='https://mailchi.mp/291b44f58cbb/ho-ho-ho'" style="padding: 0.5rem 1rem; border: none; background-color: #333; color: #fff; border-radius: 5px; cursor: pointer;">
-  Sign Up
-</button>
-
-        
+        <button onclick="window.location.href='https://mailchi.mp/291b44f58cbb/ho-ho-ho'">Sign Up</button>
       </div>
 
-      <div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="myprofile.jpeg" alt="Person posing creatively">
- </div>
-    <div class="flip-card-back">
-        <h2>About Me</h2>
-        <p>Connect with me and learn more about my design journey!</p>
+      <!-- Flip Card -->
+      <div class="flip-card-container">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="myprofile.jpeg" alt="Person posing creatively">
+            </div>
+            <div class="flip-card-back">
+              <h2>About Me</h2>
+              <p>Connect with me and learn more about my design journey!</p>
+            </div>
+          </div>
+        </div>
       </div>
-
-      
     </section>
 
+    <!-- Grid Section -->
     <section class="grid-section">
       <h3>Dedicated Space for Conversations in IoT, Technology & Health</h3>
       <p>Decrease the burden of managing active work and design requests by providing a separate space to host ongoing discussions, questions, and ideas.</p>
-         <!-- PayPal button container -->
-    <div class="content">
+      
+      <!-- PayPal Button -->
+      <div class="content">
         <button id="checkout-button" class="paypal-button">Donate with PayPal</button>
-    </div>
+      </div>
+
+      <!-- Grid Items -->
       <div class="grid">
         <div class="grid-item">
           <img src="myprofile-2.jpeg" alt="Icon 1">
@@ -262,11 +258,12 @@
         <div class="grid-item">
           <img src="myprofile-3.png" alt="Icon 3">
           <h4>Upgrade Your Portfolio</h4>
-          <p>Create personal branding with and showcase your work!</p>
+          <p>Create personal branding and showcase your work!</p>
         </div>
       </div>
     </section>
 
+    <!-- CTA Section -->
     <section class="cta">
       <div class="hero">
         <img src="myprofile-2.jpeg" alt="Person posing creatively">
@@ -278,16 +275,15 @@
       </div>
     </section>
   </main>
-     <!-- PayPal SDK script -->
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
 
-    <script src="app.js"></script>
-       <script>
-    // JavaScript for timed flip
+  <!-- PayPal SDK (replace YOUR_CLIENT_ID) -->
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+  <script async src="https://tally.so/widgets/embed.js"></script>
+
+  <!-- Flip Timeout -->
+  <script>
     document.addEventListener("DOMContentLoaded", () => {
       const flipCard = document.querySelector(".flip-card-inner");
-
-      // Automatically flip the card after 3 seconds
       setTimeout(() => {
         flipCard.style.transform = "rotateY(180deg)";
       }, 3000);
