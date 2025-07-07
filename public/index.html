@@ -53,9 +53,10 @@
 
     .hero img {
       width: 100%;
-      max-width: 600px;
+      max-width: 350px;
       height: auto;
       border-radius: 10px;
+      object-fit: cover;
     }
 
     .hero-content {
@@ -139,72 +140,6 @@
       background-color: #005a9c;
     }
 
-    /* Flip Card Container */
-    .flip-card-container {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .flip-card {
-      perspective: 1000px;
-      width: 100%;
-      max-width: 350px;
-      height: 450px;
-      margin: auto;
-    }
-
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-    }
-
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .flip-card-front {
-      background-color: #f0f0f0;
-    }
-
-    .flip-card-front img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .flip-card-back {
-      background-color: #333;
-      color: white;
-      transform: rotateY(180deg);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 1rem;
-    }
-
-    .flip-card-back h2 {
-      margin: 0;
-      font-size: 1.5rem;
-    }
-
-    .flip-card-back p {
-      margin-top: 0.5rem;
-      font-size: 1rem;
-      text-align: center;
-    }
-
-    /* Responsive Design */
     @media (max-width: 768px) {
       .hero {
         flex-direction: column;
@@ -213,10 +148,6 @@
 
       .hero img {
         width: 100%;
-      }
-
-      .flip-card-container {
-        margin-top: 2rem;
       }
     }
   </style>
@@ -242,27 +173,15 @@
         <button onclick="window.location.href='https://mailchi.mp/291b44f58cbb/ho-ho-ho'">Sign Up</button>
       </div>
 
-      <!-- Flip Card -->
-      <div class="flip-card-container">
-        <div class="flip-card">
-          <div class="flip-card-inner" id="flipCard">
-            <div class="flip-card-front">
-              <img src="myprofile.jpeg" alt="Person posing creatively">
-            </div>
-            <div class="flip-card-back">
-              <h2>About Me</h2>
-              <p>Connect with me and learn more about my design journey!</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Simple Image (No Flip) -->
+      <img src="myprofile.jpeg" alt="Person posing creatively">
     </section>
 
     <!-- Grid Section -->
     <section class="grid-section">
       <h3>Dedicated Space for Conversations in IoT, Technology & Health</h3>
       <p>Decrease the burden of managing active work and design requests by providing a separate space to host ongoing discussions, questions, and ideas.</p>
-      
+
       <!-- PayPal Button -->
       <div class="content">
         <button id="checkout-button" class="paypal-button">Donate with PayPal</button>
@@ -304,22 +223,5 @@
   <!-- PayPal SDK -->
   <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
   <script async src="https://tally.so/widgets/embed.js"></script>
-
-  <!-- Auto Flip Script (flip + reset) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const flipCard = document.getElementById("flipCard");
-
-      // Flip after 3 seconds
-      setTimeout(() => {
-        flipCard.style.transform = "rotateY(180deg)";
-
-        // Flip back after another 3 seconds
-        setTimeout(() => {
-          flipCard.style.transform = "rotateY(0deg)";
-        }, 3000);
-      }, 3000);
-    });
-  </script>
 </body>
 </html>
