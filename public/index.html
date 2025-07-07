@@ -7,21 +7,6 @@
 
   <script async src="https://tally.so/widgets/embed.js"></script>
 
-<script>
-window.TallyConfig = {
-  "formId": "wMZEvg",
-  "popup": {
-    "emoji": {
-      "text": "👋",
-      "animation": "wave"
-    },
-    "open": {
-      "trigger": "time",
-      "ms": 3000
-    }
-  }
-};
-</script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -54,31 +39,38 @@ window.TallyConfig = {
       font-weight: bold;
     }
 
-    .main {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
-    }
-
+    /* ✅ HERO SECTION with BANNER and GRADIENT OVERLAY */
     .hero {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
       flex-wrap: wrap;
+      padding: 4rem 2rem;
+      border-radius: 10px;
+      overflow: hidden;
+      color: white;
+      z-index: 1;
     }
 
-    .hero img {
-      width: 100%;
-      max-width: 350px;
-      height: auto;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)
+      ), url('banner.jpg'); /* 👉 Replace with your banner image */
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
       border-radius: 10px;
-      object-fit: cover;
     }
 
     .hero-content {
       flex: 1;
+      z-index: 2;
     }
 
     .hero-content h2 {
@@ -94,70 +86,22 @@ window.TallyConfig = {
     .hero-content button {
       padding: 0.5rem 1rem;
       border: none;
-      background-color: #333;
-      color: #fff;
+      background-color: #ffe600;
+      color: #000;
       border-radius: 5px;
       cursor: pointer;
+      font-weight: bold;
     }
 
-    .grid-section {
-      text-align: center;
-    }
-
-    .grid-section h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .grid-item {
-      background-color: #fff;
-      padding: 1.5rem;
+    .hero img {
+      width: 40%;
       border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    .grid-item img {
-      width: 80px;
+      max-width: 100%;
       height: auto;
-      margin-bottom: 1rem;
+      z-index: 2;
     }
 
-    .grid-item h4 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      margin-top: 2rem;
-    }
-
-    .paypal-button {
-      padding: 15px 30px;
-      font-size: 1.5rem;
-      color: white;
-      background-color: #0070ba;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .paypal-button:hover {
-      background-color: #005a9c;
-    }
-
+    /* Responsive tweaks */
     @media (max-width: 768px) {
       .hero {
         flex-direction: column;
@@ -170,10 +114,11 @@ window.TallyConfig = {
     }
   </style>
 </head>
-
 <body>
+
+  <!-- Header -->
   <header class="header">
-    <h1>Disne++++++{{}}</h1>
+    <h1>Disnet</h1>
     <nav class="nav">
       <a href="#">Home</a>
       <a href="#">About</a>
@@ -181,19 +126,17 @@ window.TallyConfig = {
     </nav>
   </header>
 
-  <main class="main">
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <span class="tag">My Global Community</span>
-        <h2>The Home for a Bit More Creativity in a Design Based Community</h2>
-        <p>Ask questions, share ideas, and build connections with each other—all right next to your designs. DesignTo Discussions enable healthy and productive design collaboration.</p>
-        <button onclick="window.location.href='https://mailchi.mp/291b44f58cbb/ho-ho-ho'">Sign Up</button>
-      </div>
-
-      <!-- Simple Image (No Flip) -->
-      <img src="myprofile.jpeg" alt="Person posing creatively">
-    </section>
+  <!-- ✅ HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>The Home for a Bit More Creativity in a Design Based Community</h2>
+      <p>Ask questions, share ideas, and build connections with each other—all right next to your designs.</p>
+      <button data-tally-open="nr9oJ5" data-tally-layout="modal" data-tally-width="600">
+        Join Now
+      </button>
+    </div>
+    <img src="myprofile.jpeg" alt="Person posing creatively" />
+  </section>
 
     <!-- Grid Section -->
     <section class="grid-section">
