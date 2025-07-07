@@ -11,6 +11,7 @@
       padding: 0;
       background-color: #f9f9f9;
     }
+
     .header {
       display: flex;
       justify-content: space-between;
@@ -19,24 +20,29 @@
       background-color: #ffffff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+
     .header h1 {
       font-size: 1.5rem;
     }
+
     .nav {
       display: flex;
       gap: 1rem;
     }
+
     .nav a {
       text-decoration: none;
       color: #333;
       font-weight: bold;
     }
+
     .main {
       padding: 2rem;
       display: flex;
       flex-direction: column;
       gap: 4rem;
     }
+
     .hero {
       display: flex;
       align-items: center;
@@ -44,23 +50,28 @@
       gap: 2rem;
       flex-wrap: wrap;
     }
+
     .hero img {
       width: 100%;
       max-width: 600px;
       height: auto;
       border-radius: 10px;
     }
+
     .hero-content {
       flex: 1;
     }
+
     .hero-content h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
+
     .hero-content p {
       font-size: 1.2rem;
       margin-bottom: 1rem;
     }
+
     .hero-content button {
       padding: 0.5rem 1rem;
       border: none;
@@ -73,16 +84,19 @@
     .grid-section {
       text-align: center;
     }
+
     .grid-section h3 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
+
     .grid-item {
       background-color: #fff;
       padding: 1.5rem;
@@ -90,11 +104,13 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
+
     .grid-item img {
       width: 80px;
       height: auto;
       margin-bottom: 1rem;
     }
+
     .grid-item h4 {
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
@@ -107,6 +123,7 @@
       height: 100%;
       margin-top: 2rem;
     }
+
     .paypal-button {
       padding: 15px 30px;
       font-size: 1.5rem;
@@ -117,16 +134,18 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+
     .paypal-button:hover {
       background-color: #005a9c;
     }
 
-    /* Flip Card */
+    /* Flip Card Container */
     .flip-card-container {
       flex: 1;
       display: flex;
       justify-content: center;
     }
+
     .flip-card {
       perspective: 1000px;
       width: 100%;
@@ -134,6 +153,7 @@
       height: 450px;
       margin: auto;
     }
+
     .flip-card-inner {
       position: relative;
       width: 100%;
@@ -141,9 +161,7 @@
       transition: transform 0.6s;
       transform-style: preserve-3d;
     }
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
+
     .flip-card-front,
     .flip-card-back {
       position: absolute;
@@ -153,14 +171,17 @@
       border-radius: 10px;
       overflow: hidden;
     }
+
     .flip-card-front {
       background-color: #f0f0f0;
     }
+
     .flip-card-front img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .flip-card-back {
       background-color: #333;
       color: white;
@@ -171,25 +192,29 @@
       flex-direction: column;
       padding: 1rem;
     }
+
     .flip-card-back h2 {
       margin: 0;
       font-size: 1.5rem;
     }
+
     .flip-card-back p {
       margin-top: 0.5rem;
       font-size: 1rem;
       text-align: center;
     }
 
-    /* Responsive Adjustments */
+    /* Responsive Design */
     @media (max-width: 768px) {
       .hero {
         flex-direction: column;
         text-align: center;
       }
+
       .hero img {
         width: 100%;
       }
+
       .flip-card-container {
         margin-top: 2rem;
       }
@@ -220,7 +245,7 @@
       <!-- Flip Card -->
       <div class="flip-card-container">
         <div class="flip-card">
-          <div class="flip-card-inner">
+          <div class="flip-card-inner" id="flipCard">
             <div class="flip-card-front">
               <img src="myprofile.jpeg" alt="Person posing creatively">
             </div>
@@ -276,16 +301,23 @@
     </section>
   </main>
 
-  <!-- PayPal SDK (replace YOUR_CLIENT_ID) -->
+  <!-- PayPal SDK -->
   <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
   <script async src="https://tally.so/widgets/embed.js"></script>
 
-  <!-- Flip Timeout -->
+  <!-- Auto Flip Script (flip + reset) -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const flipCard = document.querySelector(".flip-card-inner");
+      const flipCard = document.getElementById("flipCard");
+
+      // Flip after 3 seconds
       setTimeout(() => {
         flipCard.style.transform = "rotateY(180deg)";
+
+        // Flip back after another 3 seconds
+        setTimeout(() => {
+          flipCard.style.transform = "rotateY(0deg)";
+        }, 3000);
       }, 3000);
     });
   </script>
